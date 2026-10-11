@@ -1,0 +1,13 @@
+name: Test DevOps Connection
+
+on:
+  push:
+    branches: [ "main" ]  # Запускать, когда мы что-то меняем в коде приложения
+  workflow_dispatch:      # Позволит запустить вручную кнопкой
+
+jobs:
+  test-deploy:
+    # МЫ ВЫЗЫВАЕМ ВАШ РЕПОЗИТОРИЙ Dev_Ops
+    uses: Dmitriy-py/Dev_Ops/.github/workflows/deploy.yml@main
+    with:
+      target_env: 'Stage-Server'
